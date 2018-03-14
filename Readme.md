@@ -16,11 +16,12 @@ https://www.tutorialspoint.com/restful/index.htm
 ###### # Copy the *.war file to webapps folder of tomcat
   cp target/*.war ~/bin/apache-tomcat-9.0.6/webapps/
 
+### Testing the Project
+
 ###### # Startup Tomcat
   apache-tomcat-9.0.6/bin/startup.sh
   apache-tomcat-9.0.6/bin/shutdown.sh (to shutdown at the end)
 
-### Testing the Project
 ##### Call the following URLs via web browser or curl command
 ###### # Print Hello World
   curl -X GET http://localhost:8080/restful-web-service/webapi/myresource
@@ -31,7 +32,7 @@ https://www.tutorialspoint.com/restful/index.htm
 ###### # Create a course
 curl -X POST -d 'id=21&code=code21&name=name21' http://localhost:8080/restful-web-service/webapi/course_service/courses
 
-###### # Query the course that got created
+###### # Query the course that just got created
 curl -X GET http://localhost:8080/restful-web-service/webapi/course_service/courses/21
 
 ###### Update the course
