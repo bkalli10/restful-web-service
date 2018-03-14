@@ -5,45 +5,45 @@ https://www.tutorialspoint.com/restful/index.htm
 
 ### Downloading this Project
 
-####### Download as .zip or clone
+###### # Download as .zip or clone
 
-####### Change Directory
+###### # Change Directory
   cd restful-web-service
 
-####### Build the *.war file
+###### # Build the *.war file
   mvn clean package
 
-####### Copy the *.war file to webapps folder of tomcat
+###### # Copy the *.war file to webapps folder of tomcat
   cp target/*.war ~/bin/apache-tomcat-9.0.6/webapps/
 
-####### Startup Tomcat
+###### # Startup Tomcat
   apache-tomcat-9.0.6/bin/startup.sh
   apache-tomcat-9.0.6/bin/shutdown.sh (to shutdown at the end)
 
 ### Testing the Project
 ##### Call the following URLs via web browser or curl command
-####### Print Hello World
+###### # Print Hello World
   curl -X GET http://localhost:8080/restful-web-service/webapi/myresource
 
-####### Get all courses
+###### # Get all courses
   curl -X GET http://localhost:8080/restful-web-service/webapi/course_service/courses  
 
-####### Create a course
+###### # Create a course
 curl -X POST -d 'id=21&code=code21&name=name21' http://localhost:8080/restful-web-service/webapi/course_service/courses
 
-####### Query the course that got created
+###### # Query the course that got created
 curl -X GET http://localhost:8080/restful-web-service/webapi/course_service/courses/21
 
-####### Update the course
+###### Update the course
 curl -X PUT -d 'id=21&code=code21-B&name=name21-B' http://localhost:8080/restful-web-service/webapi/course_service/courses
 
-####### Verify the update
+###### # Verify the update
 curl -X GET http://localhost:8080/restful-web-service/webapi/course_service/courses/21
 
-####### Delete the course
+###### # Delete the course
 curl -X DELETE http://localhost:8080/restful-web-service/webapi/course_service/courses/21
 
-####### Verify the delete
+###### # Verify the delete
 curl -X GET http://localhost:8080/restful-web-service/webapi/course_service/courses/21
 
 ### Process used in setting up this project
@@ -51,7 +51,7 @@ Reference: https://jersey.github.io/documentation/latest/getting-started.html
 
 Download Apache Maven if it is not installed already. 
 
-####### Create a project from the template
+###### # Create a project from the template
 
   mvn archetype:generate -DarchetypeArtifactId=jersey-quickstart-webapp -DarchetypeGroupId=org.glassfish.jersey.archetypes -DinteractiveMode=false -DgroupId=com.example -DartifactId=restful-web-service -Dpackage=com.example -DarchetypeVersion=2.26
 
