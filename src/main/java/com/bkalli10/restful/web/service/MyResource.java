@@ -1,4 +1,4 @@
-package com.bkalli10;
+package com.bkalli10.restful.web.service;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;

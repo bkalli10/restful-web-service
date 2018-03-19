@@ -1,10 +1,7 @@
-package com.bkalli10;
+package com.bkalli10.restful.web.service;
 
 import java.io.Serializable;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
 
-@XmlRootElement(name = "course")
 public class Course implements Serializable {
 
   private static final long serialVersionUID = 1L;
@@ -24,7 +21,6 @@ public class Course implements Serializable {
     return id;
   }
 
-  @XmlElement
   public void setId(int id) {
     this.id = id;
   }
@@ -33,7 +29,6 @@ public class Course implements Serializable {
     return name;
   }
 
-  @XmlElement
   public void setName(String name) {
     this.name = name;
   }
@@ -42,7 +37,6 @@ public class Course implements Serializable {
     return code;
   }
 
-  @XmlElement
   public void setCode(String code) {
     this.code = code;
   }
@@ -61,5 +55,10 @@ public class Course implements Serializable {
       }
     }
     return false;
+  }
+
+  @Override
+  public String toString() {
+    return "Course [id=" + id + ", code=" + code + ", name=" + name + "]";
   }
 }

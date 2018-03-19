@@ -1,8 +1,5 @@
 # RESTful-web-service
 
-### Reference
-https://www.tutorialspoint.com/restful/index.htm
-
 ### Downloading this Project
 
 ###### # Download as .zip or clone
@@ -26,30 +23,31 @@ https://www.tutorialspoint.com/restful/index.htm
 ###### # Print Hello World
   curl -X GET http://localhost:8080/restful-web-service/webapi/myresource
 
+###### # Get OPTIONS
+  curl -X OPTIONS http://localhost:8080/restful-web-service/webapi/course_service/courses  
+
 ###### # Get all courses
   curl -X GET http://localhost:8080/restful-web-service/webapi/course_service/courses  
 
 ###### # Create a course
-curl -X POST -d 'id=21&code=code21&name=name21' http://localhost:8080/restful-web-service/webapi/course_service/courses
+curl -X POST -d 'id=41&code=code41&name=name41' http://localhost:8080/restful-web-service/webapi/course_service/courses
 
 ###### # Query the course that just got created
-curl -X GET http://localhost:8080/restful-web-service/webapi/course_service/courses/21
+curl -X GET http://localhost:8080/restful-web-service/webapi/course_service/courses/41
 
 ###### Update the course
-curl -X PUT -d 'id=21&code=code21-B&name=name21-B' http://localhost:8080/restful-web-service/webapi/course_service/courses
+curl -X PUT -d 'id=41&code=code41-B&name=name41-B' http://localhost:8080/restful-web-service/webapi/course_service/courses
 
 ###### # Verify the update
-curl -X GET http://localhost:8080/restful-web-service/webapi/course_service/courses/21
+curl -X GET http://localhost:8080/restful-web-service/webapi/course_service/courses/41
 
 ###### # Delete the course
-curl -X DELETE http://localhost:8080/restful-web-service/webapi/course_service/courses/21
+curl -X DELETE http://localhost:8080/restful-web-service/webapi/course_service/courses/41
 
 ###### # Verify the delete
-curl -X GET http://localhost:8080/restful-web-service/webapi/course_service/courses/21
+curl -X GET http://localhost:8080/restful-web-service/webapi/course_service/courses/41
 
 ### Process used in setting up this project
-Reference: https://jersey.github.io/documentation/latest/getting-started.html
-
 Download Apache Maven if it is not installed already. 
 
 ###### # Create a project from the template
@@ -70,4 +68,7 @@ Eclipse error: The superclass “javax.servlet.http.HttpServlet” was not found
 java.lang.UnsupportedClassVersionError: javax/ws/rs/core/GenericType : Unsupported major.minor version 52.0
   Fix: Project → Properties → Target Runtimes → Apache Tomcat (any server)
 
+### References
+1. https://www.tutorialspoint.com/restful/index.htm
+2. https://jersey.github.io/documentation/latest/getting-started.html
 

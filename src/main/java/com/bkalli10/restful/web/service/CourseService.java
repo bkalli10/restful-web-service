@@ -1,4 +1,4 @@
-package com.bkalli10;
+package com.bkalli10.restful.web.service;
 
 import java.io.IOException;
 import java.util.List;
@@ -19,9 +19,7 @@ import javax.ws.rs.core.MediaType;
 @Path("/course_service")
 public class CourseService {
 
-  CourseDao courseDao = new CourseDao();
-  private static final String SUCCESS_RESULT = "<result>success</result>";
-  private static final String FAILURE_RESULT = "<result>failure</result>";
+  private CourseDao courseDao = new CourseDao();
 
   @GET
   @Path("/courses")
@@ -49,11 +47,11 @@ public class CourseService {
       throws IOException {
     
     Course course = new Course(id, code, name);
-    int result = courseDao.addCourse(course);
+    int result = courseDao.createCourse(course);
     if (result == 1) {
-      return SUCCESS_RESULT;
+      return Constants.SUCCESS_RESULT;
     }
-    return FAILURE_RESULT;
+    return Constants.FAILURE_RESULT;
   }
 
   @PUT
@@ -70,9 +68,9 @@ public class CourseService {
     Course course = new Course(id, code, name);
     int result = courseDao.updateCourse(course);
     if (result == 1) {
-      return SUCCESS_RESULT;
+      return Constants.SUCCESS_RESULT;
     }
-    return FAILURE_RESULT;
+    return Constants.FAILURE_RESULT;
   }
 
   @DELETE
@@ -81,16 +79,16 @@ public class CourseService {
   public String deleteCourse(@PathParam("courseid") int courseid) {
     int result = courseDao.deleteCourse(courseid);
     if (result == 1) {
-      return SUCCESS_RESULT;
+      return Constants.SUCCESS_RESULT;
     }
-    return FAILURE_RESULT;
+    return Constants.FAILURE_RESULT;
   }
 
   @OPTIONS
   @Path("/courses")
   @Produces(MediaType.APPLICATION_JSON)
   public String getSupportedOperations() {
-    return "<operations>GET, PUT, POST, DELETE</operations>";
+    return Constants.OPERATIONS;
   }
 }
 

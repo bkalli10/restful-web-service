@@ -1,4 +1,4 @@
-package com.bkalli10;
+package com.bkalli10.restful.web.service;
 
 import java.util.List;
 
@@ -9,11 +9,10 @@ import javax.ws.rs.core.Form;
 import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.MediaType;
 
-public class WebServiceTester  {
+public class CourseServiceTest  {
 
    private Client client;
    private String REST_SERVICE_URL = "http://localhost:8080/restful-web-service/webapi/course_service/courses";
-   private static final String SUCCESS_RESULT="<result>success</result>";
    private static final String PASS = "pass";
    private static final String FAIL = "fail";
 
@@ -21,8 +20,11 @@ public class WebServiceTester  {
       this.client = ClientBuilder.newClient();
    }
 
+   /*
+    * The tests in this class are run manually as there is external dependency of Tomcat. 
+    */
    public static void main(String[] args){
-      WebServiceTester tester = new WebServiceTester();
+      CourseServiceTest tester = new CourseServiceTest();
       //initialize the tester
       tester.init();
 
@@ -42,7 +44,7 @@ public class WebServiceTester  {
       tester.testUpdateCourse();
 
       //test delete course Web Service Method
-      //tester.testDeleteCourse();
+      tester.testDeleteCourse();
    }
 
    //Test: Get list of all courses
@@ -61,7 +63,7 @@ public class WebServiceTester  {
    }
 
    //Test: Add Course of id 11
-   //Test: Check if result is success XML.
+   //Test: Check if result is success.
    private void testAddCourse(){
       Form form = new Form();
       form.param("id", "11");
@@ -76,7 +78,7 @@ public class WebServiceTester  {
             String.class);
 
       String result = PASS;
-      if(!SUCCESS_RESULT.equals(callResult)){
+      if(!Constants.SUCCESS_RESULT.equals(callResult)){
          result = FAIL;
       }
 
@@ -103,7 +105,7 @@ public class WebServiceTester  {
    }
 
    //Test: Add Course of id 12
-   //Test: Check if result is success XML.
+   //Test: Check if result is success.
    private void testAddCourse12(){
       Form form = new Form();
       form.param("id", "12");
@@ -118,7 +120,7 @@ public class WebServiceTester  {
             String.class);
 
       String result = PASS;
-      if(!SUCCESS_RESULT.equals(callResult)){
+      if(!Constants.SUCCESS_RESULT.equals(callResult)){
          result = FAIL;
       }
 
@@ -126,7 +128,7 @@ public class WebServiceTester  {
    }
 
    //Test: Update Course of id 12
-   //Test: Check if result is success XML.
+   //Test: Check if result is success.
    private void testUpdateCourse(){
       Form form = new Form();
       form.param("id", "12");
@@ -140,7 +142,7 @@ public class WebServiceTester  {
             MediaType.APPLICATION_FORM_URLENCODED_TYPE),
             String.class);
       String result = PASS;
-      if(!SUCCESS_RESULT.equals(callResult)){
+      if(!Constants.SUCCESS_RESULT.equals(callResult)){
          result = FAIL;
       }
 
@@ -148,7 +150,7 @@ public class WebServiceTester  {
    }
 
    //Test: Delete Course of id 12
-   //Test: Check if result is success XML.
+   //Test: Check if result is success.
    private void testDeleteCourse(){
       String callResult = client
          .target(REST_SERVICE_URL)
@@ -158,7 +160,7 @@ public class WebServiceTester  {
          .delete(String.class);
 
       String result = PASS;
-      if(!SUCCESS_RESULT.equals(callResult)){
+      if(!Constants.SUCCESS_RESULT.equals(callResult)){
          result = FAIL;
       }
 
