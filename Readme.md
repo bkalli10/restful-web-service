@@ -5,13 +5,13 @@
 ###### # Download as .zip or clone
 
 ###### # Change Directory
-  cd restful-web-service
+    cd restful-web-service
 
 ###### # Build the *.war file
-  mvn clean package
+    mvn clean package
 
 ###### # Copy the *.war file to webapps folder of tomcat
-  cp target/*.war ~/bin/apache-tomcat-9.0.6/webapps/
+    cp target/*.war ~/bin/apache-tomcat-9.0.6/webapps/
 
 ### Testing the Project
 
@@ -21,38 +21,39 @@
 
 ##### Call the following URLs via web browser or curl command
 ###### # Print Hello World
-  curl -X GET http://localhost:8080/restful-web-service/webapi/myresource
+    curl --request GET http://localhost:8080/restful-web-service/webapi/myresource
 
 ###### # Get OPTIONS
-  curl -X OPTIONS http://localhost:8080/restful-web-service/webapi/course_service/courses  
+    curl --request OPTIONS http://localhost:8080/restful-web-service/webapi/course_service/courses  
+
+###### # Create three courses
+    curl --request POST --data 'id=41&code=code41&name=name41' http://localhost:8080/restful-web-service/webapi/course_service/courses
+    curl --request POST --data 'id=42&code=code42&name=name42' http://localhost:8080/restful-web-service/webapi/course_service/courses
+    curl --request POST --data 'id=43&code=code42&name=name43' http://localhost:8080/restful-web-service/webapi/course_service/courses
 
 ###### # Get all courses
-  curl -X GET http://localhost:8080/restful-web-service/webapi/course_service/courses  
+    curl --request GET http://localhost:8080/restful-web-service/webapi/course_service/courses  
 
-###### # Create a course
-curl -X POST -d 'id=41&code=code41&name=name41' http://localhost:8080/restful-web-service/webapi/course_service/courses
+###### # Get a course
+    curl --request GET http://localhost:8080/restful-web-service/webapi/course_service/courses/41
 
-###### # Query the course that just got created
-curl -X GET http://localhost:8080/restful-web-service/webapi/course_service/courses/41
-
-###### Update the course
-curl -X PUT -d 'id=41&code=code41-B&name=name41-B' http://localhost:8080/restful-web-service/webapi/course_service/courses
+##### # Update a course
+    curl --request PUT --data 'id=41&code=code41B&name=name41B' http://localhost:8080/restful-web-service/webapi/course_service/courses
 
 ###### # Verify the update
-curl -X GET http://localhost:8080/restful-web-service/webapi/course_service/courses/41
+    curl --request GET http://localhost:8080/restful-web-service/webapi/course_service/courses/41
 
-###### # Delete the course
-curl -X DELETE http://localhost:8080/restful-web-service/webapi/course_service/courses/41
+###### # Delete a course
+    curl --request DELETE http://localhost:8080/restful-web-service/webapi/course_service/courses/41
 
 ###### # Verify the delete
-curl -X GET http://localhost:8080/restful-web-service/webapi/course_service/courses/41
+    curl --request GET http://localhost:8080/restful-web-service/webapi/course_service/courses/41
 
 ### Process used in setting up this project
 Download Apache Maven if it is not installed already. 
 
 ###### # Create a project from the template
-
-  mvn archetype:generate -DarchetypeArtifactId=jersey-quickstart-webapp -DarchetypeGroupId=org.glassfish.jersey.archetypes -DinteractiveMode=false -DgroupId=com.example -DartifactId=restful-web-service -Dpackage=com.example -DarchetypeVersion=2.26
+    mvn archetype:generate -DarchetypeArtifactId=jersey-quickstart-webapp -DarchetypeGroupId=org.glassfish.jersey.archetypes -DinteractiveMode=false -DgroupId=com.example -DartifactId=restful-web-service -Dpackage=com.example -DarchetypeVersion=2.26
 
 ### Errors Faced
 ##### error 1

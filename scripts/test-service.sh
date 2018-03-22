@@ -1,30 +1,32 @@
-echo!/bin/bash
+#!/bin/bash
 
 set -e
 set -x
 
 echo Print Hello World
-curl -X GET http://localhost:8080/restful-web-service/webapi/myresource
+curl --request GET http://localhost:8080/restful-web-service/webapi/myresource
+
+echo Create three courses
+curl --request POST --data 'id=41&code=code41&name=name41' http://localhost:8080/restful-web-service/webapi/course_service/courses
+curl --request POST --data 'id=42&code=code42&name=name42' http://localhost:8080/restful-web-service/webapi/course_service/courses
+curl --request POST --data 'id=43&code=code42&name=name43' http://localhost:8080/restful-web-service/webapi/course_service/courses
 
 echo Get all courses
-curl -X GET http://localhost:8080/restful-web-service/webapi/course_service/courses
+curl --request GET http://localhost:8080/restful-web-service/webapi/course_service/courses
 
-echo Create a course
-curl -X POST -d 'id=21&code=code21&name=name21' http://localhost:8080/restful-web-service/webapi/course_service/courses
+echo Get a course
+curl --request GET http://localhost:8080/restful-web-service/webapi/course_service/courses/41
 
-echo Query the course that just got created
-curl -X GET http://localhost:8080/restful-web-service/webapi/course_service/courses/21
-
-echo Update the course
-curl -X PUT -d 'id=21&code=code21-B&name=name21-B' http://localhost:8080/restful-web-service/webapi/course_service/courses
+echo Update a course
+curl --request PUT --data 'id=41&code=code41-B&name=name41-B' http://localhost:8080/restful-web-service/webapi/course_service/courses
 
 echo Verify the update
-curl -X GET http://localhost:8080/restful-web-service/webapi/course_service/courses/21
+curl --request GET http://localhost:8080/restful-web-service/webapi/course_service/courses/41
 
-echo Delete the course
-curl -X DELETE http://localhost:8080/restful-web-service/webapi/course_service/courses/21
+echo Delete a course
+curl --request DELETE http://localhost:8080/restful-web-service/webapi/course_service/courses/41
 
 echo Verify the delete
-curl -X GET http://localhost:8080/restful-web-service/webapi/course_service/courses/21
+curl --request GET http://localhost:8080/restful-web-service/webapi/course_service/courses/41
 
 
