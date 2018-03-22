@@ -37,7 +37,7 @@
 ###### # Get a course
     curl --request GET http://localhost:8080/restful-web-service/webapi/course_service/courses/41
 
-##### # Update a course
+###### # Update a course
     curl --request PUT --data 'id=41&code=code41B&name=name41B' http://localhost:8080/restful-web-service/webapi/course_service/courses
 
 ###### # Verify the update
