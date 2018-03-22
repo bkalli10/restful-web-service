@@ -52,8 +52,10 @@
 ### Process used in setting up this project
 Download Apache Maven if it is not installed already. 
 
-###### # Create a project from the template
+###### # Create a project from the template (see ref2)
     mvn archetype:generate -DarchetypeArtifactId=jersey-quickstart-webapp -DarchetypeGroupId=org.glassfish.jersey.archetypes -DinteractiveMode=false -DgroupId=com.example -DartifactId=restful-web-service -Dpackage=com.example -DarchetypeVersion=2.26
+
+###### # Create classes (see ref1)
 
 ### Errors Faced
 ##### error 1
