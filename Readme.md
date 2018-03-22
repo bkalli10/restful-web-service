@@ -16,8 +16,8 @@
 ### Testing the Project
 
 ###### # Startup Tomcat
-  apache-tomcat-9.0.6/bin/startup.sh
-  apache-tomcat-9.0.6/bin/shutdown.sh (to shutdown at the end)
+    apache-tomcat-9.0.6/bin/startup.sh
+    apache-tomcat-9.0.6/bin/shutdown.sh (to shutdown at the end)
 
 ##### Call the following URLs via web browser or curl command
 ###### # Print Hello World
