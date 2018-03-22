@@ -59,17 +59,16 @@ Download Apache Maven if it is not installed already.
 
 ### Errors Faced
 ##### error 1
-eclipse -> right click on project -> java build path -> add library -> system JRE -> choose version 8 
+    eclipse -> right click on project -> java build path -> add library -> system JRE -> choose version 8 
 
 ##### error 2
-Eclipse error: The superclass “javax.servlet.http.HttpServlet” was not found on the Java Build Path [duplicate]
-  Fix: Project → Properties → Target Runtimes → Apache Tomcat (any server)
-  
-  https://stackoverflow.com/questions/22756153/the-superclass-javax-servlet-http-httpservlet-was-not-found-on-the-java-build
+    Eclipse error: The superclass “javax.servlet.http.HttpServlet” was not found on the Java Build Path [duplicate]
+    Fix: Project → Properties → Target Runtimes → Apache Tomcat (any server)
+    https://stackoverflow.com/questions/22756153/the-superclass-javax-servlet-http-httpservlet-was-not-found-on-the-java-build
   
 ##### error 3
-java.lang.UnsupportedClassVersionError: javax/ws/rs/core/GenericType : Unsupported major.minor version 52.0
-  Fix: Project → Properties → Target Runtimes → Apache Tomcat (any server)
+    java.lang.UnsupportedClassVersionError: javax/ws/rs/core/GenericType : Unsupported major.minor version 52.0
+    Fix: Project → Properties → Target Runtimes → Apache Tomcat (any server)
 
 ### References
 1. https://www.tutorialspoint.com/restful/index.htm
