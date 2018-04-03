@@ -7,10 +7,13 @@ import java.io.Reader;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
+import org.apache.log4j.Logger;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 public class CourseValidation {
+
+  final static Logger logger = Logger.getLogger(CourseValidation.class);
 
   public static List<Course> readCourse(String fileName) throws IOException {
     Gson gson = new Gson();

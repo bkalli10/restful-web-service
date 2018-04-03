@@ -55,6 +55,13 @@ Download Apache Maven if it is not installed already.
 ###### # Create a project from the template (see ref2)
     mvn archetype:generate -DarchetypeArtifactId=jersey-quickstart-webapp -DarchetypeGroupId=org.glassfish.jersey.archetypes -DinteractiveMode=false -DgroupId=com.example -DartifactId=restful-web-service -Dpackage=com.example -DarchetypeVersion=2.26
 
+###### # Create folders
+    cd restful-web-service
+    mkdir -p src/main/java/com/bkalli10/restful/web/service
+    mkdir -p src/main/resources
+    mkdir -p src/test/java/com/bkalli10/restful/web/service
+    mkdir -p src/test/resources
+
 ###### # Create classes (see ref1)
 
 ### Errors Faced

@@ -1,11 +1,13 @@
 package com.bkalli10.restful.web.service;
 
 import java.util.List;
+import org.apache.log4j.Logger;
 
 public class CourseDao {
 
+  final static Logger logger = Logger.getLogger(CourseDao.class);
   private CourseData courseData;
-  
+
   public CourseDao() {
     this.courseData = new CourseData();
   }
@@ -30,6 +32,9 @@ public class CourseDao {
   }
 
   public int createCourse(Course crs) {
+
+    logger.debug("Creating course: " + crs);
+
     List<Course> courseList = courseData.getCourseList();
     boolean courseExists = false;
     if (courseList != null) {
