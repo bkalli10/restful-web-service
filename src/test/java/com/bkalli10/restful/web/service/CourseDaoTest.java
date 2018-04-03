@@ -2,16 +2,19 @@ package com.bkalli10.restful.web.service;
 
 import java.io.IOException;
 import java.util.List;
+import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.junit.Test;
 import com.google.gson.Gson;
 
 /*
- * JUnit creates a new instance of this class for every method with @Test annotation.
- * That is because it allows JUnit to run the the tests in parallel.
- * By design, each unit test should be independent of other unit tests (@Test).
+ * JUnit creates a new instance of this class for every method with @Test annotation. That is
+ * because it allows JUnit to run the the tests in parallel. By design, each unit test should be
+ * independent of other unit tests (@Test).
  */
 public class CourseDaoTest {
+
+  final static Logger logger = Logger.getLogger(CourseDaoTest.class);
 
   private Gson gson = new Gson();
   List<Course> initialCourses;
@@ -27,7 +30,7 @@ public class CourseDaoTest {
 
   @Test
   public void testGetCourses() throws IOException {
-    System.out.println("Executing testGetCourses");
+    logger.debug("Executing testGetCourses");
 
     String fileName = "src/test/resources/initialCourses.json";
     List<Course> expectedList = CourseValidation.readCourse(fileName);
@@ -36,8 +39,8 @@ public class CourseDaoTest {
 
     // Printing the values so that we can compare them manually at jsondiff.com
     // if any asserts below fail.
-    System.out.println("expectedList: " + gson.toJson(expectedList));
-    System.out.println("actualList: " + gson.toJson(actualList));
+    logger.debug("expectedList: " + gson.toJson(expectedList));
+    logger.debug("actualList: " + gson.toJson(actualList));
 
     Assert.assertEquals(actualList.size(), 3);
 
@@ -49,7 +52,7 @@ public class CourseDaoTest {
 
   @Test
   public void testGetCourse() {
-    System.out.println("Executing testGetCourse");
+    logger.debug("Executing testGetCourse");
     int id = 21;
     String code = "code21";
     String name = "name21";
@@ -61,7 +64,7 @@ public class CourseDaoTest {
 
   @Test
   public void testCreateCourse() {
-    System.out.println("Executing testCreateCourse");
+    logger.debug("Executing testCreateCourse");
     int id = 31;
     String code = "code31";
     String name = "name31";
@@ -79,7 +82,7 @@ public class CourseDaoTest {
 
   @Test
   public void testUpdateCourse() {
-    System.out.println("Executing testUpdateCourse");
+    logger.debug("Executing testUpdateCourse");
     int id = 22;
     String code = "code22";
     String name = "name22";
@@ -98,7 +101,7 @@ public class CourseDaoTest {
 
   @Test
   public void testDeleteCourse() {
-    System.out.println("Executing testDeleteCourse");
+    logger.debug("Executing testDeleteCourse");
     int id = 23;
     String code = "code23";
     String name = "name23";
@@ -116,7 +119,7 @@ public class CourseDaoTest {
 
   @Test
   public void testMixedOperations() throws IOException {
-    System.out.println("Executing testMixedOperations");
+    logger.debug("Executing testMixedOperations");
 
     testCreateCourse();
     testUpdateCourse();
@@ -129,8 +132,8 @@ public class CourseDaoTest {
 
     // Printing the values so that we can compare them manually at jsondiff.com
     // if any asserts below fail.
-    System.out.println("expectedList: " + gson.toJson(expectedList));
-    System.out.println("actualList: " + gson.toJson(actualList));
+    logger.debug("expectedList: " + gson.toJson(expectedList));
+    logger.debug("actualList: " + gson.toJson(actualList));
 
     Assert.assertEquals(actualList.size(), 3);
 

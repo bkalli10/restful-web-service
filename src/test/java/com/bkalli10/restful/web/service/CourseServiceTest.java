@@ -1,15 +1,17 @@
 package com.bkalli10.restful.web.service;
 
 import java.util.List;
-
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.core.Form;
 import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.MediaType;
+import org.apache.log4j.Logger;
 
 public class CourseServiceTest  {
+
+   final static Logger logger = Logger.getLogger(CourseServiceTest.class);
 
    private Client client;
    private String REST_SERVICE_URL = "http://localhost:8080/restful-web-service/webapi/course_service/courses";
@@ -23,7 +25,7 @@ public class CourseServiceTest  {
    /*
     * The tests in this class are run manually as there is external dependency of Tomcat. 
     */
-   public static void main(String[] args){
+   public static void main(String[] args) {
       CourseServiceTest tester = new CourseServiceTest();
       //initialize the tester
       tester.init();
@@ -59,7 +61,7 @@ public class CourseServiceTest  {
       if(courses.isEmpty()){
          result = FAIL;
       }
-      System.out.println("Test case name: testGetAllCourses, Result: " + result );
+      logger.debug("Test case name: testGetAllCourses, Result: " + result );
    }
 
    //Test: Add Course of id 11
@@ -82,7 +84,7 @@ public class CourseServiceTest  {
          result = FAIL;
       }
 
-      System.out.println("Test case name: testAddCourse, Result: " + result );
+      logger.debug("Test case name: testAddCourse, Result: " + result );
    }
 
    //Test: Get Course of id 11
@@ -101,7 +103,7 @@ public class CourseServiceTest  {
       if(sampleCourse != null && sampleCourse.getId() == course.getId()){
          result = PASS;
       }
-      System.out.println("Test case name: testGetCourse, Result: " + result );
+      logger.debug("Test case name: testGetCourse, Result: " + result );
    }
 
    //Test: Add Course of id 12
@@ -124,7 +126,7 @@ public class CourseServiceTest  {
          result = FAIL;
       }
 
-      System.out.println("Test case name: testAddCourse12, Result: " + result );
+      logger.debug("Test case name: testAddCourse12, Result: " + result );
    }
 
    //Test: Update Course of id 12
@@ -146,7 +148,7 @@ public class CourseServiceTest  {
          result = FAIL;
       }
 
-      System.out.println("Test case name: testUpdateCourse, Result: " + result );
+      logger.debug("Test case name: testUpdateCourse, Result: " + result );
    }
 
    //Test: Delete Course of id 12
@@ -164,6 +166,6 @@ public class CourseServiceTest  {
          result = FAIL;
       }
 
-      System.out.println("Test case name: testDeleteCourse, Result: " + result );
+      logger.debug("Test case name: testDeleteCourse, Result: " + result );
    }
 }

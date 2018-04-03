@@ -15,10 +15,12 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
+import org.apache.log4j.Logger;
 
 @Path("/course_service")
 public class CourseService {
 
+  final static Logger logger = Logger.getLogger(CourseService.class);
   private CourseDao courseDao = new CourseDao();
 
   @GET
