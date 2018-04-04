@@ -1,5 +1,26 @@
 # RESTful-web-service
 
+### Functional Features
+1. Create a course
+2. Update a course
+3. Delete a course
+4. Get details of a course
+5. Get details of all courses
+
+### Technical Features
+1. Tomcat
+2. Jersey
+3. Unit tests using JUnit
+4. Use mocked Data Access object to demonstrate the use of dependency injection
+5. Validation class to validate list of Courses that could be out of order 
+6. Logging using Log4J
+7. Configuration using Properties
+8. JSON serialize/deserialize
+9. Use of Web Archive File (WAR)
+10. Build using Maven
+11. Source Version control using git
+12. Use github as repository
+
 ### Downloading this Project
 
 ###### # Download as .zip or clone

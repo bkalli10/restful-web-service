@@ -21,6 +21,10 @@ public class CourseDao {
   }
 
   public Course getCourse(int id) {
+
+    logger.debug("getCourse: " + id);
+    logger.info(String.format("course.data.file: %s", ConfigReader.getProperty("course.data.file")));
+
     List<Course> courses = courseData.getCourseList();
 
     for (Course course : courses) {
